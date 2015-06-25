@@ -31,8 +31,7 @@ class ListTree:
 			self.__visited[aClass] = True
 			#print('2 self.__class__.__bases__', aClass.__bases__) 
 			#print('3 join', ''.join(genabove))                      
-			genabove = (self.__listclass(c, indent+4)
-				for c in aClass.__bases__)           
+			genabove = (self.__listclass(c, indent+4)           
 			return '\n{0}<Class {1}, addr {2}:\n{3}{4}{5}>\n'.format(  
 				dots,
 				aClass.__name__,
