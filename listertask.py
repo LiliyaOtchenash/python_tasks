@@ -57,11 +57,12 @@ class Spam(ListTree):
 		self.data1 = 'food'
 		self.data2 = 'clothes'
 
-
+class Sub(Spam): pass
 
 x = Spam()
 print(x)
 
-
+y = Sub()
+print(y)
 #Используя атрибут __bases__, расширьте классы в файле lister.py (глава 30) так, чтобы они выводили имена
 #прямых суперклассов экземпляров класса. При этом первая строка в этом выводе должна выглядеть, как показано ниже (значение адреса у вас #может отличаться): <Instance of Sub(Super, ListTree), address 7841200:
