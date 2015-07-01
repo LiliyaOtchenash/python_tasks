@@ -5,7 +5,6 @@
     необходимо явно указывать кодировку (то, что я дописал в начале файла -> # -*- coding: utf-8 -*-)
 """
 class ListTree:
-    @property
     def __str__(self):
         self.__a = []
         self.__visited = {}
