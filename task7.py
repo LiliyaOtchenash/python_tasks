@@ -22,12 +22,12 @@ class Customer:
         #return self.foodName
 
     def printFood(self):     # выводит название блюда
-        return self.foodName
+        return self.foodName.name
 
 
 class Employee:
     def takeOrder(self, foodName):  # возвращает блюдо с указанным названием
-        return Food(foodName).name
+        return Food(foodName)
 
 
 class Food:
