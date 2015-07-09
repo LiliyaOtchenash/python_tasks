@@ -7,22 +7,18 @@ class Lunch:
         self.customer.placeOrder(foodName, self.employee)
 
     def result(self):  # запрашивает у клиента название блюда
-        return (self.customer.printFood())
+        self.customer.printFood()
 
 
 class Customer:
     def __init__(self):  # инициализирует название блюда значением None
         self.foodName = None
-        self.employee = Employee()
 
     def placeOrder(self, foodName, employee):  # передает заказ официанту
-        # if not self.employee:
-        # self.employee = employee
-        self.foodName = self.employee.takeOrder(foodName)
-        #return self.foodName
+        self.foodName = employee.takeOrder(foodName)
 
     def printFood(self):     # выводит название блюда
-        return self.foodName.name
+        print(self.foodName.name)
 
 
 class Employee:
