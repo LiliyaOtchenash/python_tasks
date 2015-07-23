@@ -176,6 +176,44 @@ l.sayYourAge(-3) ### wrapper(l, -3)
 ##    sayYourAge(l, -6)
 ###       prin('Мне 32-6=26, а ты бы сколько дал?')
 
+def a_decorator_passing_arbitrary_arguments(function_to_decorate):
+    def a_wrapper_accepting_arbitrary_arguments(*args, **kwargs):
+        print('Перeдали ли мне что-нибудь?:')
+        print(args)
+        print(kwargs)
+        function_to_decorate(*args, **kwargs)
+    print('обертка уже сработала func== a_wrapper_accepting_arbitrary_arguments')
+    return a_wrapper_accepting_arbitrary_arguments
+
+@a_decorator_passing_arbitrary_arguments
+def function_with_no_argument():  #####  почему ptint(args) срабатывает по разному как () и (<__main__.Mary object at 0x7fbb29f578d0>,)
+    print('Python is cool, no argument here.')
+
+function_with_no_argument()
+
+@a_decorator_passing_arbitrary_arguments
+def function_with_arguments(a, b, c, d='5'):
+    print(a, b, c, d)
+
+function_with_arguments(1, 2, 3, d='интересно')
+print('_' * 20)
+
+class Mary(object):
+    def __init__(self):
+        self.age = 31
+
+    @a_decorator_passing_arbitrary_arguments   ###### почему print(args) срабатывает по разному  как () и как(<__main__.Mary object at 0x7fbb29f578d0>,)
+    def sayYourAge(self, lie=-3):
+        print('Мне %s. а ты бы сколько дал?' % (self.age + lie))
+
+m = Mary()
+m.sayYourAge()
+# m.a_wrapper_accepring_arbitrary_arguments()
+#
+
+
+
+
 
 
 
