@@ -1,11 +1,14 @@
 def makebold(fn):
     def wrapped():
+        print('раз')
         return '<b>' + fn() + '</b>'
+    print('два')
     return wrapped
 
 def makeitalic(fn):
     def wrapped():
         return '<b>' + fn() + '</i>'
+    print('слушай Андрея')
     return wrapped
 
 
@@ -14,6 +17,7 @@ def makeitalic(fn):
 def hello():
     return 'hello habr'
 
+#
 # hello = makebold(makeitalic(hello))
 # hello() уже внутри fn()
 
@@ -149,8 +153,11 @@ print('_' * 20)
 def method_friendly_decorator(method_to_decorate):
     def wrapper(self, lie):
         lie = lie - 3
+        print('слушай Андрея внимательно')
         return method_to_decorate(self, lie)
+    print('слушай Андрея')
     return wrapper
+
 
 
 class Lucy(object):
@@ -160,20 +167,15 @@ class Lucy(object):
     @method_friendly_decorator
     def sayYourAge(self, lie):
         print('Мне %s, а ты бы сколько дал?' % (self.age + lie))
-
+#sayYourAge =method_friendly_decorator(sayYourAge)
+# sayYourAge = wrapper
 l = Lucy()
 print(l.age)
-l.sayYourAge(-3)
-#l.sayYourAge(-3) =l.method_friendly_decorator(sayYourAge)(-3)
-# method_friendly_decorator(sayYourAge)
-## wrapper(l, -3)
+l.sayYourAge(-3) ### wrapper(l, -3)
 ##    lie = -3 - 3
 ##    sayYourAge(l, -6)
 ###       prin('Мне 32-6=26, а ты бы сколько дал?')
-## return wrapper
-### тут моя логика рушиться ? код еще раз запускает wrapper ??? вро де
-### как да. но тогда lie уже -9 (а по ответу =6) значит нет или я неправильно
-### провела предыдущие расчеты lie
+
 
 
 
