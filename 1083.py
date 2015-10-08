@@ -29,7 +29,7 @@ class CardHolder:
                 raise TypeError('invalid acct number')
         elif name == 'remain':
             raise TypeError('cannot set remain')
-        self.__dict__[name] = value
+        self.dict__[name] = value
 
 
 

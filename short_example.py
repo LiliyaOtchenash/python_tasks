@@ -7,7 +7,7 @@ import tornado.httpclient
 
 class VersionHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write('Version: 3.5.1. Last_build:' + date.today().iosformat())
+        self.write('Version: 3.5.1. Last_build:' + date.today().isoformat())
         self.set_header('Content-Type', 'text/plain')
 
 class GetGameByIdHandler(tornado.web.RequestHandler):
@@ -46,6 +46,7 @@ application = tornado.web.Application([
     (r"/version", VersionHandler)
 ])
 
-if __name__ == 'main':
+if __name__ == '__main__':
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
+
