@@ -1,0 +1,6 @@
+<h2>{{ texts.text }}</h2>
+<ul>
+{% for choice in texts.choice_set.all %}
+    <li>{{ choice.decim }}</li>
+{% endfor %}
+</ul>

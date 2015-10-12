@@ -1,0 +1,9 @@
+{% if text_list %}
+    <ul>
+    {% for tex in text_list %}
+        <li><a href="/table/{{ tex.id }}/">{{ tex.text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tables are avalible.<p>
+{% endif %}
